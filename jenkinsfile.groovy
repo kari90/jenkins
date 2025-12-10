@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://gitlab.com/MadlenQA/my_project_selenide.git'
+                git branch: 'main', url: 'https://github.com/kari90/jenkins.git'
             }
         }
 
