@@ -21,7 +21,7 @@ pipeline {
           steps {
               git(
                   branch: 'main',
-                  url: 'https://github.com/kprojekt.git',
+                  url: 'https://github.com/kari90/jenkins.git',
                   credentialsId: 'jenkins'
               )
           }
