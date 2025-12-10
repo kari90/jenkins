@@ -14,6 +14,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/kari90/jenkins.git'
+                 credentialsId: 'github-token'
             }
         }
         stage('Verify Maven') {
