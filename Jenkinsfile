@@ -1,14 +1,20 @@
 pipeline {
     agent any
+
+    tools {
+        jdk 'jdk17'
+        maven 'Maven3'
+    }
+
     environment {
-        // Java
-        JAVA_HOME = "C:\\Program Files\\OpenJDK17U-jdk_x64_windows_hotspot_17.0.10_7"
-        // Maven
-        M2_HOME = "C:\\Program Files\\Apache\\apache-maven-3.9.11"
-        PATH = "${JAVA_HOME}\\bin;${M2_HOME}\\bin;${env.PATH}"
+   JAVA_HOME = "C:/Program Files/OpenJDK17U-jdk_x64_windows_hotspot_17.0.10_7"
+   M2_HOME = "C:/Program Files/Apache/apache-maven-3.9.11"
+   PATH = "${JAVA_HOME}/bin;${M2_HOME}/bin;${env.PATH}"
+
         M2_REPO = "C:\\Users\\kwardzinska\\.m2\\repository"
         // AspectJ agent
         ASPECTJ_AGENT = "${M2_REPO}\\org\\aspectj\\aspectjweaver\\1.9.4\\aspectjweaver-1.9.4.jar"
+
     }
     stages {
         stage('Checkout') {
