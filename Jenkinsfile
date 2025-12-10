@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven 3.9.11'
+        jdk 'jdk17'
+    }
     environment {
         JAVA_HOME = "C:\\Program Files\\OpenJDK17U-jdk_x64_windows_hotspot_17.0.10_7"
         PATH = "${JAVA_HOME}\\bin;${env.PATH}"
@@ -16,11 +20,12 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                bat 'mvn clean compile'
-            }
-        }
+      stage('Build') {
+              steps {
+                  bat 'mvn -version'
+                  bat 'mvn clean compile'
+              }
+          }
 
         stage('Run Unit Tests') {
             steps {
