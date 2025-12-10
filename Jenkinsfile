@@ -4,7 +4,7 @@ pipeline {
         JAVA_HOME = "C:\\Program Files\\OpenJDK17U-jdk_x64_windows_hotspot_17.0.10_7"
         PATH = "${JAVA_HOME}\\bin;${env.PATH}"
 
-   M2_HOME = "C:\\Program Files\\Apache\\apache-maven-3.9.6"
+   M2_HOME = "C:\Program Files\Apache\apache-maven-3.9.11"
         PATH = "${M2_HOME}\\bin;${PATH}"
 
         M2_REPO = "C:\\Users\\kwardzinska\\.m2\\repository"
