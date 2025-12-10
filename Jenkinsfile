@@ -1,22 +1,27 @@
 pipeline {
     agent any
-
-    tools {
-        maven 'Maven 3.9.11'
-        jdk 'jdk17'
-    }
     environment {
         JAVA_HOME = "C:\\Program Files\\OpenJDK17U-jdk_x64_windows_hotspot_17.0.10_7"
         PATH = "${JAVA_HOME}\\bin;${env.PATH}"
+
+   M2_HOME = "C:\\Program Files\\Apache\\apache-maven-3.9.6"
+        PATH = "${M2_HOME}\\bin;${PATH}"
 
         M2_REPO = "C:\\Users\\kwardzinska\\.m2\\repository"
         ASPECTJ_AGENT = "${M2_REPO}\\org\\aspectj\\aspectjweaver\\1.9.4\\aspectjweaver-1.9.4.jar"
     }
 
+
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/kari90/jenkins.git'
+            }
+        }
+
+stage('Verify Maven') {
+            steps {
+                bat "mvn -version"
             }
         }
 
