@@ -17,12 +17,15 @@ pipeline {
 
     }
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/kari90/jenkins.git'
-                 credentialsId: 'jenkins'
-            }
-        }
+      stage('Checkout') {
+          steps {
+              git(
+                  branch: 'main',
+                  url: 'https://github.com/kprojekt.git',
+                  credentialsId: 'jenkins'
+              )
+          }
+      }
         stage('Verify Maven') {
             steps {
                 bat "mvn -version"
